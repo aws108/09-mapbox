@@ -11,7 +11,7 @@
       min="-2"
       max="18"
       [value]="zoom"
-      (input)="zoomChanged( zoomInput.value )"
+      (input)="zoomChanged( zoomInput.value )" 
       #zoomInput
     >
 
@@ -25,3 +25,8 @@
   </span>
 
 </div>
+
+<!--
+  (input)="zoomChanged( zoomInput.value )" 
+  #zoomInput    -> Envías el valor del Input gracias a la referencia local
+-->

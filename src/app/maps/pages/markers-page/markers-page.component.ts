@@ -20,7 +20,7 @@ export class MarkersPageComponent {
 
   @ViewChild('map') divMap?: ElementRef;
 
-  public markers: MarkerAndColor[] = [];
+  public markers: MarkerAndColor[] = []; //array de marcadores que se han ido insertando
 
 
   public map?: Map;
@@ -41,7 +41,7 @@ export class MarkersPageComponent {
     this.readFromLocalStorage();
 
     // const markerHtml = document.createElement('div');
-    // markerHtml.innerHTML = 'Fernando Herrera'
+    // markerHtml.innerHTML = 'Fernando Herrera' //El marcador será este nombre dentro de un div
 
     // const marker = new Marker({
     //   // color: 'red',
@@ -75,9 +75,7 @@ export class MarkersPageComponent {
     this.markers.push({ color, marker, });
     this.saveToLocalStorage();
 
-    marker.on('dragend', () => this.saveToLocalStorage() );
-
-    // dragend
+    marker.on('dragend', () => this.saveToLocalStorage() ); // cada vez ue acabas de mover un marcador, se guarda la posición
   }
 
   deleteMarker( index: number ) {
@@ -86,16 +84,13 @@ export class MarkersPageComponent {
   }
 
   flyTo( marker: Marker ) {
-
     this.map?.flyTo({
       zoom: 14,
       center: marker.getLngLat()
     });
-
   }
 
-
-  saveToLocalStorage() {
+  saveToLocalStorage() { //localStorage sólo almacena strings
     const plainMarkers: PlainMarker[] = this.markers.map( ({ color, marker }) => {
       return {
         color,
@@ -104,11 +99,10 @@ export class MarkersPageComponent {
     });
 
     localStorage.setItem('plainMarkers', JSON.stringify( plainMarkers ));
-
   }
 
   readFromLocalStorage() {
-    const plainMarkersString = localStorage.getItem('plainMarkers') ?? '[]';
+    const plainMarkersString = localStorage.getItem('plainMarkers') ?? '[]'; //si no existe, das un array vacío
     const plainMarkers: PlainMarker[] = JSON.parse( plainMarkersString ); //! OJO!
 
     plainMarkers.forEach( ({ color, lngLat }) => {

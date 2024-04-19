@@ -13,7 +13,7 @@ interface MenuItem {
 })
 export class SideMenuComponent {
 
-  public menuItems: MenuItem[] = [
+  public menuItems: MenuItem[] = [ //array de rutas para el menú del mapa
     { route: '/maps/fullscreen', name: 'FullScreen' },
     { route: '/maps/zoom-range', name: 'ZoomRange' },
     { route: '/maps/markers', name: 'Markers' },

@@ -8,6 +8,10 @@ No usar directamente en AngularCLI (a menos que estén creadas las variables de 
 ```
 npm run envs
 ```
+npm install --save mapbox-gl
+```
+npm i --save-dev @types/mapbox-gl
+```
 
 4. Para development ejecutar:
 ```

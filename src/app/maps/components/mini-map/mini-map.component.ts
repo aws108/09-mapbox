@@ -21,7 +21,7 @@ export class MiniMapComponent {
       style: 'mapbox://styles/mapbox/streets-v12', // style URL
       center: this.lngLat,
       zoom: 15,
-      interactive: false
+      interactive: false // bloquea la miniatua y hace que no se pueda mover el mapa
     });
 
     new Marker()

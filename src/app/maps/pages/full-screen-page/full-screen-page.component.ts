@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, ElementRef, ViewChild } from '@angular/core';
 import { Map } from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
+// import * as mapboxgl from 'mapbox-gl';
 
 
 @Component({
@@ -8,7 +9,7 @@ import { Map } from 'mapbox-gl'; // or "const mapboxgl = require('mapbox-gl');"
 })
 export class FullScreenPageComponent implements AfterViewInit {
 
-  @ViewChild('map') divMap?: ElementRef;
+  @ViewChild('map') divMap?: ElementRef; //toma la referencia de algún elemento hmtl
 
 
   ngAfterViewInit(): void {
