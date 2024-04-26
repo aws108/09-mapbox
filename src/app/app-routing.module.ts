@@ -6,6 +6,10 @@ const routes: Routes = [ //Carga de páginas mediante lazyLoad
     path: 'maps',
     loadChildren: () => import('./maps/maps.module').then( m => m.MapsModule ), //1
   },
+  {//Carga perezosa del stadalone component
+    path: 'alone',
+    loadComponent: () => import('./alone/pages/alone-page/alone-page.component').then( m => m.AlonePageComponent ),
+  },
   {
     path: '**',
     redirectTo: 'maps',
